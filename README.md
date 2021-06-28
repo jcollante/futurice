@@ -5,4 +5,4 @@ The data transformations are still mid-way, but the functions are already declar
 The code can be executed by installing all libraries declared in the Pipfile.
 
 
-![alt text](https://www.dropbox.com/home/Aplicaciones/Futurice?preview=Captura+de+pantalla+2021-06-28+101135.PNG.jpg)
+![alt text](https://www.dropbox.com/s/mtxdrmqk99ydwv4/Captura%20de%20pantalla%202021-06-28%20101135.PNG.jpg?dl=0)
