@@ -1,0 +1,8 @@
+# futurice
+Code Challenge
+
+The data transformations are still mid-way, but the functions are already declared.
+The code can be executed by installing all libraries declared in the Pipfile.
+
+
+![architecture](https://ucb72ea8bb15fb44027fc15de62f.previews.dropboxusercontent.com/p/thumb/ABPiygMfmiVLl4uGO3yJ6ns4PHUTrEZoUKV_oDnlkRQH6JB-XH0YLYsGmPuXTZ7X-MflNYo_qujbatkSqgHKUg9krr_EhjexEqHWyna9NmpBllG12jTYGSqDRZ-wK8i58maTDrSIUJvh8v-0-SZcNhm8uEl8X64LsJ-8yyfMC_4TsDl9p66MA3jTk8-TkUMgUCSHsw5ELqS__F7oKzcObM3ffFQoU-IbPzxobXo70LGxv5GjI6ai_7YTiJJDnFyRHpW-cLT-cQ5XfdaClVAkWtLxnDonM1Enp1Re3phnoeqSodOyf1aKvBTtp4IyqEy1yEXTsozaRDT4k-Mm5nfILeaD7PJ9rUMqY-t81DOcQOD8_64MUPVn1gAQWTXVz9OwUJuLM2oYsgxVMPBFDdbHyDUG/p.jpeg?fv_content=true&size_mode=5)

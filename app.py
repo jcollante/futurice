@@ -4,12 +4,13 @@ from flask_api import FlaskAPI
 from flask_api import status
 from flask import request
 from dotenv import load_dotenv
+import sqlite3
 
 # ETL tasks
 from etl.extract import extract
 from etl.cleanse import clean
 from etl.load import load
-from etl.transformations import transform
+from etl.transformations import transform, get_list_country_attractiveness
 
 db_name = 'futurice'
 app = FlaskAPI(__name__)
@@ -26,25 +27,13 @@ def get_results():
     """ 
     Return results
     """
-    conn = sqlite3.connect(f"{db_name}.db")
-    c = conn.cursor()
-    c.execute(
-        """SELECT time, country, (countries_gdp * ict_gdp * comp_services_usage) AS attractivenes
-           FROM {db_schema_prod}.fact_attractiveness_office;
-        """
-    )
+    result = get_list_country_attractiveness(db_name)
 
-    content = c.fetchall()
-    c.close()
+    if not result:
+        return "Record not found", status.HTTP_422_UNPROCESSABLE_ENTITY
+    return result
 
-    data = [{'time': time, 'country': country, 'attractivenes': attractivenes} \
-            for time, country, attractivenes in content]
-
-    return {
-        'request_data': data
-    }
-
-@app.route('/update_data', methods=['GET'])
+@app.route('/update_data', methods=['PUT'])
 def update_data(): # using query parameters
     """ 
     Runs the etl: get data from source, clean, transform and upload data
@@ -57,7 +46,7 @@ def update_data(): # using query parameters
     transform(cleanse, db_name)
     
     if loads != 200:
-        return "Record not found", status.HTTP_400_BAD_REQUEST
+        return "Record not found", status.HTTP_422_UNPROCESSABLE_ENTITY
     else:
         return {
             'update_data': "success"
